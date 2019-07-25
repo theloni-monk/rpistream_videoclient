@@ -51,6 +51,7 @@ class Client:
         self.log("Connecting...")
         # connect over port
         self.s.connect((self.ip, kwargs.get("port", 8080)))
+        self.log("Client connected")
 
         # instanciate a decompressor which we can use to decompress our frames
         self.D = zstandard.ZstdDecompressor()
@@ -89,7 +90,7 @@ class Client:
         """Recvs initial frame and preps"""
         # initial frame cant use intra-frame compression
         initMsg = recv_msg(self.s)
-        print "recieved initial frame"
+        #print "recieved initial frame"
         self.prevFrame = np.load(io.BytesIO(
             self.D.decompress(initMsg)))
         self.frameno = 0
