@@ -1,8 +1,10 @@
 from clientDependency.streamclient import Client
 import socket
+import sys
 import cv2
 
-SERVER_IP = "localhost"
+
+SERVER_IP = "YOURIPHERE"
 SERVER_PORT = 5000
 #NOTE: if you change the resolution in the server, you have to change it in the client
 try:
